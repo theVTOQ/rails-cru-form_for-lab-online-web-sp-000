@@ -3,6 +3,10 @@ class ArtistsController < ApplicationController
     @artist = Artist.find(params[:id])
   end
 
+  def new
+    @artist = Artist.save
+  end
+
   def create
     @artist = Artist.create(params.require(:artist).permit(:name, :bio))
     redirect_to artist_path(@artist)
