@@ -3,6 +3,10 @@ class GenresController < ApplicationController
     @genre = Genre.find(params[:id])
   end
 
+  def new
+    @genre = Genre.save
+  end
+
   def create
     @genre = Genre.create(params.require(:genre).permit(:name))
     redirect_to genre_path(@genre)
